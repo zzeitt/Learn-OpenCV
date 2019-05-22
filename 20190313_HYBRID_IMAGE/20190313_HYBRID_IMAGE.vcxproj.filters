@@ -48,6 +48,9 @@
     <ClCompile Include="canny_edge_detection_2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="harris_detector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headfile_test.h">

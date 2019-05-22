@@ -8,15 +8,17 @@
 //#include "hybrid_image_2.h"
 //#include "canny_edge_detection.h"
 //#include "canny_edge_detection_2.h"
+#include "harris_detector.h"
 
 int main() {
   String path_name =
-      //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\circle_"
-      //"tick.png";
-      //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\老仓育."
-      //"jpg";
-      //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\gakki_"
-      //"wall.jpg";
-      "D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\owl.jpg";
+    //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\circle_"
+    //"tick.png";
+    //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\老仓育."
+    //"jpg";
+    //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190410_CV_canny\\gakki_"
+    //"wall.jpg";
+    "D:\\NiseEngFolder\\MyDocument\\MyPictures\\forMiscellaneous\\20190522_CV_harris_detection\\NotreDame1.jpg";
+  MyHarris(path_name, 7, 90);
   return 0;
 }

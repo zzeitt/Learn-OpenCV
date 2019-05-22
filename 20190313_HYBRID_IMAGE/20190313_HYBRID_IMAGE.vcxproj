@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="canny_edge_detection.cpp" />
     <ClCompile Include="canny_edge_detection_2.cpp" />
+    <ClCompile Include="harris_detector.cpp" />
     <ClCompile Include="hybrid_image.cpp" />
     <ClCompile Include="hybrid_image_2.cpp" />
     <ClCompile Include="learn_create_image.cpp" />
