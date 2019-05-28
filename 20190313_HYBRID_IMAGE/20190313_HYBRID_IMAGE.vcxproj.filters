@@ -54,6 +54,9 @@
     <ClCompile Include="descriptor_and_matching.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="stereo_block_matching.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headfile_test.h">
@@ -90,6 +93,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="descriptor_and_matching.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stereo_block_matching.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -128,6 +128,7 @@
     <ClCompile Include="learn_save_video.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="headfile_test.cpp" />
+    <ClCompile Include="stereo_block_matching.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canny_edge_detection.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="learn_play_video.h" />
     <ClInclude Include="learn_save_image.h" />
     <ClInclude Include="learn_save_video.h" />
+    <ClInclude Include="stereo_block_matching.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
