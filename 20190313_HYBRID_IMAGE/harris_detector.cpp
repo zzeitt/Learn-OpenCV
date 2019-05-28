@@ -1,8 +1,8 @@
 #include "harris_detector.h"
 
 MyHarris::MyHarris(String file_path, int gauss_kernel, int thresh) {
+  // 图片初始化
   img_src = imread(file_path, IMREAD_COLOR);
-  img_gray = imread(file_path, IMREAD_GRAYSCALE);
   img_gray = imread(file_path, IMREAD_GRAYSCALE);
   // （1）计算梯度及其导数
   img_sobel_x = Mat(doSobelX());
@@ -15,12 +15,12 @@ MyHarris::MyHarris(String file_path, int gauss_kernel, int thresh) {
   calResponse();
   // （5）标出角点
   drawCorners(thresh);
+
   // （6）显示窗口
+  //imshow("IMG - SRC - CIRCLED", img_src);
 
-  imshow("IMG - SRC - CIRCLED", img_src);
-
-  waitKey(0);
-  destroyAllWindows();
+  //waitKey(0);
+  //destroyAllWindows();
 }
 
 Mat MyHarris::doSobelX() {
@@ -99,11 +99,53 @@ void MyHarris::calResponse() {
 void MyHarris::drawCorners(int thresh) {
   img_src = img_src(Rect(size_sobel, size_sobel, img_src.cols - 2 * size_sobel,
                          img_src.rows - 2 * size_sobel));  // 标记前裁剪
-  for (int j = 0; j < img_src.rows; j++) {
-    for (int i = 0; i < img_src.cols; i++) {
+  img_dst_normed_scaled_feature =
+      Mat(img_src.rows, img_src.cols,
+          CV_8UC(25));  // 5x5通道特征图，存储基本灰度特征
+  img_dst_normed_scaled_feature = Scalar::all(0);
+  for (int j = 1; j < img_src.rows - 1; j++) {
+    for (int i = 1; i < img_src.cols - 1; i++) {  //减1防止遍历时越界
       if ((int)img_dst_normed_scaled.at<uchar>(j, i) > thresh) {
-        circle(img_src, Point(i, j), 5, Scalar(255), 2, 8, 0);
+        if ((img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j - 1, i - 1)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j - 1, i)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j - 1, i + 1)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j, i - 1)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j, i + 1)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j + 1, i - 1)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j + 1, i)) &&
+            (img_dst_normed_scaled.at<uchar>(j, i) >
+             img_dst_normed_scaled.at<uchar>(j + 1, i + 1))) {  //非极大值抑制
+          circle(img_src, Point(i, j), 5, Scalar(255), 2, 8, 0);
+          for (int r = 0; r < 5; r++) {
+            for (int c = 0; c < 5; c++) {
+              int row_temp = j + r - 2;
+              int col_temp = i + c - 2;
+              int feature_value_temp = 0;
+              if (row_temp >= 0 && row_temp < img_dst_normed_scaled.rows &&
+                    col_temp >= 0 && col_temp < img_dst_normed_scaled.cols) {
+                feature_value_temp =
+                    img_dst_normed_scaled.at<uchar>(row_temp, col_temp);
+              }
+              img_dst_normed_scaled_feature.at< Vec<uchar, 25> >(j, i)[r * 5 + c] = feature_value_temp;
+            }
+          }
+        }
       }
     }
   }
+}
+
+Mat MyHarris::getCircledImg() {
+  return img_src;
+}
+
+Mat MyHarris::getDescribedMap() {
+  return img_dst_normed_scaled_feature;
 }

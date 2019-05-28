@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="canny_edge_detection.cpp" />
     <ClCompile Include="canny_edge_detection_2.cpp" />
+    <ClCompile Include="descriptor_and_matching.cpp" />
     <ClCompile Include="harris_detector.cpp" />
     <ClCompile Include="hybrid_image.cpp" />
     <ClCompile Include="hybrid_image_2.cpp" />
@@ -131,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="canny_edge_detection.h" />
     <ClInclude Include="canny_edge_detection_2.h" />
+    <ClInclude Include="descriptor_and_matching.h" />
     <ClInclude Include="harris_detector.h" />
     <ClInclude Include="headfile_test.h" />
     <ClInclude Include="hybrid_image.h" />

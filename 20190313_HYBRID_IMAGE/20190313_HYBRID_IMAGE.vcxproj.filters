@@ -51,6 +51,9 @@
     <ClCompile Include="harris_detector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="descriptor_and_matching.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headfile_test.h">
@@ -84,6 +87,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="harris_detector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="descriptor_and_matching.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

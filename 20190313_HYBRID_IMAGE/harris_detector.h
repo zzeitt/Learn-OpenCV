@@ -23,6 +23,7 @@ private:
   Mat img_dst;
   Mat img_dst_normed;
   Mat img_dst_normed_scaled;
+  Mat img_dst_normed_scaled_feature;
 public:
   MyHarris(String file_path, int gauss_kernel, int thresh);
   Mat doSobelX();
@@ -31,4 +32,6 @@ public:
   void doGaussianBlur(int gauss_kernel);
   void calResponse();
   void drawCorners(int thresh);
+  Mat getCircledImg();
+  Mat getDescribedMap();
 };
