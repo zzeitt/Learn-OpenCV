@@ -57,7 +57,7 @@ void MyDepth::visualizeDepth() {
     for (int j = 0; j < i_col; j++) {
       img_disparity.at<uchar>(i, j) =
           63 + (int)(192.0 * (matrix_disparity.at<uchar>(i, j) - disp_min) /
-                     (disp_max - disp_min));  // 灰度值越低，差异越小，深度越深
+                     (disp_max - disp_min));  // 颜色越白，差异越大，深度越浅
     }
   }
   imshow("disparity", img_disparity);
