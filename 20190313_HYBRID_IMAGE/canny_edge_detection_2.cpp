@@ -12,12 +12,12 @@ MyCanny::MyCanny(String file_path, int k_size, int k_sigma, int min, int max) {
     img_threshold = Mat(threshold(img_suppress, min, max));  // 进行双阈值处理
     Canny(img_gray, img_offical, min, max);
 
-    namedWindow("IMG - GRAY");
-    namedWindow("IMG - GAUSSIAN");
-    namedWindow("IMG - SOBEL");
-    namedWindow("IMG - SUPPRESS");
-    namedWindow("IMG - DST");
-    namedWindow("IMG - OFFICIAL");
+    namedWindow("IMG - GRAY", WINDOW_NORMAL);
+    namedWindow("IMG - GAUSSIAN", WINDOW_NORMAL);
+    namedWindow("IMG - SOBEL", WINDOW_NORMAL);
+    namedWindow("IMG - SUPPRESS", WINDOW_NORMAL);
+    namedWindow("IMG - DST", WINDOW_NORMAL);
+    namedWindow("IMG - OFFICIAL", WINDOW_NORMAL);
 
     imshow("IMG - GRAY", img_gray);
     imshow("IMG - GAUSSIAN", img_gauss);

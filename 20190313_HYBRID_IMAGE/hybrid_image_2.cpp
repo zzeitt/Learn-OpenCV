@@ -127,14 +127,12 @@ void getFilteredImage(Mat ptr_ret[], Mat image, int kernel, double sigma,
 
 void hybridImage() {
   Mat img_lp_src = imread(
-      "D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
-      "image\\girl_cr.jpg",
+    "D:\\NiseEngFolder\\MyDocument\\MyPictures\\forMiscellaneous\\20190403_CV_hybrid_image\\girl_cr.jpg",
       //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
       //"image\\lena_gray.jpg",
       IMREAD_UNCHANGED);
   Mat img_hp_src = imread(
-      "D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
-      "image\\lena_cr.jpg",
+    "D:\\NiseEngFolder\\MyDocument\\MyPictures\\forMiscellaneous\\20190403_CV_hybrid_image\\lena_cr.jpg",
       //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
       //"image\\owl.jpg",
       IMREAD_UNCHANGED);
@@ -162,7 +160,7 @@ void hybridImage() {
   Mat array_hp_b[2];
   getFilteredImage(array_lp_r, img_lp_planes[0], 80, 35, false);
   getFilteredImage(array_lp_g, img_lp_planes[1], 80, 35, false);
-  getFilteredImage(array_lp_g, img_lp_planes[2], 80, 35, false);
+  getFilteredImage(array_lp_b, img_lp_planes[2], 80, 35, false);
   getFilteredImage(array_hp_r, img_hp_planes[0], 40, 295, true);
   getFilteredImage(array_hp_g, img_hp_planes[1], 40, 295, true);
   getFilteredImage(array_hp_b, img_hp_planes[2], 40, 295, true);
@@ -207,15 +205,13 @@ void hybridImage(Mat ptr_ret[][2], Mat img_lp_src, Mat img_hp_src,
 }
 void test() {
   Mat img_lp_src = imread(
-      "D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
-      "image\\girl_cr.jpg",
+    "D:\\NiseEngFolder\\MyDocument\\MyPictures\\forMiscellaneous\\20190403_CV_hybrid_image\\girl_cr.jpg",
       //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
       //"image\\lena_gray.jpg",
       // IMREAD_UNCHANGED);
       IMREAD_GRAYSCALE);
   Mat img_hp_src = imread(
-      "D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
-      "image\\lena_cr.jpg",
+    "D:\\NiseEngFolder\\MyDocument\\MyPictures\\forMiscellaneous\\20190403_CV_hybrid_image\\lena_cr.jpg",
       //"D:\\NiseEngFolder\\MyDocument\\MyPictures\\20190403_CV_hybrid_"
       //"image\\owl.jpg",
       // IMREAD_UNCHANGED);
