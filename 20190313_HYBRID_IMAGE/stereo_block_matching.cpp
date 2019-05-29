@@ -8,13 +8,13 @@ MyDepth::MyDepth(String path_left, String path_right, int block_half_size_arg,
   i_col = img_left.cols;
   block_half_size = block_half_size_arg;
   disp_min = disp_min_arg;
-  disp_max = disp_max_arg;;
+  disp_max = disp_max_arg;
+  ;
   matrix_disparity =
       Mat::zeros(i_row, i_col, CV_8UC1);  // 初始化记录差异值的矩阵
   matrix_SSD = Mat(i_row, i_col, CV_16UC1,
                    Scalar::all(65535));  // 初始化记录SSD值的矩阵
   img_disparity = Mat::zeros(i_row, i_col, CV_8UC1);  // 初始化差异图
-
 
   // （1）特征点匹配 & 计算距离
   matchPointAndCalDisparity();
@@ -40,7 +40,6 @@ void MyDepth::matchPointAndCalDisparity() {
                 pow((img_left.at<uchar>(l_r, l_c) -
                      img_right.at<uchar>(r_r, min(max(0, r_c), i_col - 1))),
                     2);
-
           }
         }
         /* 更新记录用矩阵 */
@@ -57,7 +56,8 @@ void MyDepth::visualizeDepth() {
   for (int i = 0; i < i_row; i++) {
     for (int j = 0; j < i_col; j++) {
       img_disparity.at<uchar>(i, j) =
-          63 + (int)(192.0 * (matrix_disparity.at<uchar>(i, j) - disp_min) / (disp_max - disp_min));
+          63 + (int)(192.0 * (matrix_disparity.at<uchar>(i, j) - disp_min) /
+                     (disp_max - disp_min));  // 灰度值越低，差异越小，深度越深
     }
   }
   imshow("disparity", img_disparity);
